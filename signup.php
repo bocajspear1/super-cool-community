@@ -12,7 +12,7 @@ if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)
     $username = $_POST['username'];
     $fullname = $_POST['fullname'];
     $description = $_POST['description'];
-	$password = md5($_POST['password']);
+	$password = $_POST['password'];
 
 	// Stop SQL injection
     // Was having some problems, disabled for now
@@ -68,24 +68,19 @@ if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)
     </div>
     <?php endif; ?>
 
-    <form method="post" action="signup.php">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Username">
-        </div>
+    <form method="post" action="signup.php" id="signup-form">
+        
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" id="username" placeholder="Username">
     
-        <div class="form-group">
-            <label for="fullname">Full Name</label>
-            <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Full Name">
-        </div>
-        <div class="form-group">
-            <label for="username">Password</label>
-            <input type="password" class="form-control" name="password" id="password">
-        </div>
-        <div class="form-group">
-            <label for="username">Description of You!</label>
-            <textarea name="description" id="description"></textarea>
-        </div>
+        <label for="fullname">Full Name</label>
+        <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Full Name">
+
+        <label for="username">Password</label>
+        <input type="password" class="form-control" name="password" id="password">
+
+        <label for="username">Description of You!</label>
+        <textarea name="description" id="description" rows="2", cols="100"></textarea>
         <button type="submit" class="btn btn-primary">Sign Up!</button>
     </form>
 

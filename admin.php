@@ -32,8 +32,29 @@ if (
 <main>
     <section id="users">
         <?php include("includes/database.php"); ?>
+        <h3>Users</h3>
         <table>
-            <tr><th>Username</th><th>Password</th><th>Post Count</th></tr>
+            <tr><th>Username</th><th>Full Name</th><th>Password</th><th>Post Count</th></tr>
+
+            <?php
+                 $query = "SELECT * FROM users";
+
+                 $result = $mysqli->query($query);
+ 
+                 if (!$result) {
+                    echo "<div class='error'>Failed to query: (" . $mysqli->errno . ") " . $mysqli->error . "</div>";
+                 } else if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr><td>" . $row['username'] . "</td><td>" . $row['fullname'] . "</td><td>" . $row['password'] . "</td>";
+                        $query = "SELECT * FROM posts WHERE userid=" . $row['userid'];
+                        $posts_result = $mysqli->query($query);
+                        echo "<td>" . $posts_result->num_rows . "</td>";
+                        echo "</tr>\n";
+                    }
+                 } 
+                     
+            ?>
+            
         </table>
     </section>
     <section id="processes">

@@ -40,6 +40,7 @@
                 passthru("mkdir ./" . $_POST['upload_dir'] . "; chmod 775 ./" . $_POST['upload_dir']);
             } elseif ($_POST['save'] == 'save') {
                 $output = [
+                    'database_host' => $_POST['database_host'],
                     'database_user' => $_POST['database_user'],
                     'database_password' => $_POST['database_password'],
                     'database_name' => $_POST['database_name'],
@@ -61,6 +62,10 @@
     <div>
         <h3>Config Setup</h3>
         <form method="post" action="install.php">
+            <div class="form-group">
+                <label for="database_user">Database Username</label>
+                <input type="text" class="form-control" name="database_host" placeholder="Database Host" value="<?php if ($config!==null){echo $config->database_host;}?>">
+            </div>
             <div class="form-group">
                 <label for="database_user">Database Username</label>
                 <input type="text" class="form-control" name="database_user" placeholder="Database Username" value="<?php if ($config!==null){echo $config->database_user;}?>">

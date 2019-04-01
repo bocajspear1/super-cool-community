@@ -1,4 +1,5 @@
 {
+    "database_host": "localhost",
     "database_user": "sccommunity",
     "database_password": "sccommunity!",
     "database_name": "sccommunity",

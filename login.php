@@ -8,7 +8,7 @@ $ERROR = "";
 if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST))  {
 
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = $_POST['password'];
 
     $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 

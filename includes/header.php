@@ -22,6 +22,7 @@
             }
 
         ?>
-            <li><a href="page.php">Users</a></li>
+                <li><a href="page.php">Users</a></li>
+                <li><a href="index.php">Home</a></li>
     </ul>
 </header>

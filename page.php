@@ -21,14 +21,17 @@
 
                 $result = $mysqli->query($query);
 
-                if (!$result || $result->num_rows == 0) {
+                if (!$result) {
+                    echo "<div class='error'>Failed to query: (" . $mysqli->errno . ") " . $mysqli->error . "</div>";
+                } else if ($result->num_rows == 0) {
                     echo "<div class='error'>The user $username does not exist</div>";
                 } else {
                     $user_data = $result->fetch_assoc();
+                    echo "<div id='profile-top'>";
                     echo "<h1>" . $user_data['fullname'] . "</h1>";
                     echo "<h3>" . $user_data['username'] . "</h2>";
                     echo "<div id='description'>" . $user_data['description'] . "</div>";
-                    echo "<hr>";
+                    echo "</div><hr>";
                     echo "<div id='posts'>";
                     echo "<h3>Posts</h3>";
 
@@ -65,12 +68,17 @@
                 
                 $users = $mysqli->query("SELECT * FROM users");
 
+                echo "<table id='user-table'>\n<tr><th>User</th><th>Post Count</th></tr>\n";
                 while ($row = $users->fetch_assoc()) {
                     $username = $row['username'];
                     $fullname = $row['fullname'];
-                    echo "<li><a href='page.php?u=$username'>$fullname</a></li>\n";
+                    echo "<tr><td><a href='page.php?u=$username'>$fullname</a></td>";
+                    $query = "SELECT * FROM posts WHERE userid=" . $row['userid'];
+                    $posts_result = $mysqli->query($query);
+                    echo "<td>" . $posts_result->num_rows . "</td>";
+                    echo "</tr>\n";
                 }
-                echo "</ul></div>";
+                echo "</table>";
             }
 
         ?>

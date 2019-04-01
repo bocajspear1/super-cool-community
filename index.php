@@ -4,24 +4,16 @@
 <main>
     <?php include("includes/database.php"); ?>
 
-    <ul class="nav nav-pills nav-justified">
-        <li><a href="index.php?page=about.php">About</a></li>
-        <li><a href="index.php?page=accounts.php">Accounts</a></li>
-        <li><a href="index.php?page=checks.php">Checks</a></li>
-        <li><a href="index.php?page=loans.php">Loans</a></li>
-    </ul>
-    <section id="page-content">
-        <?php 
+    <h2>
+        Welcome to <?php echo $config->community_name; ?>
+    </h2>
+    <h3>
+        <?php echo $config->description; ?>
+    </h3>
 
-
-            if (array_key_exists('page', $_GET) ) {
-                include "pages/" . $_GET['page']; 
-            } else {
-                
-            }
-
-        ?>
-    </section>
+    <p>
+        Login above to enjoy this community. Made possible by SuperCoolCommunity!
+    </p>
 
 </main>
 

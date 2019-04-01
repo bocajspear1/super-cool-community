@@ -80,16 +80,16 @@
 
                     echo "<div id='description'>";
                     echo "<form method='post' action='me.php'> ";
-                    echo "<input type='text' name='description' value='" . $user_data['description'] . "'/>";
-                    echo "<input type='hidden' name='action' value='description'/>";
+                    echo "<textarea name='description' rows='2', cols='100'>" . $user_data['description'] . "</textarea>";
+                    echo "<input type='hidden' name='action' value='description'/><br>";
                     echo "<button type='submit'>Update Description</button></form>";
                     echo "</div>";
 
                     echo "<div id='new-post'>";
                     echo "<h3>New Post</h3>";
                     echo "<form method='post' action='me.php'> ";
-                    echo "<input type='text' name='title' />";
-                    echo "<textarea name='text'></textarea>";
+                    echo "<label>Post Title</label><input type='text' name='title' />";
+                    echo "<label>Post Content</label><textarea name='text' rows='10' cols='100'></textarea>";
                     echo "<input type='hidden' name='action' value='post'/>";
                     echo "<button type='submit'>Create Post</button></form>";
                     echo "</div>";
@@ -98,9 +98,8 @@
                     echo "<div id='new-upload'>";
                     echo "<h3>New Upload</h3>";
                     echo "<form method='post' action='me.php' enctype=\"multipart/form-data\"> ";
-                    echo "<input type='text' name='name' />";
-                    echo "<input type='text' name='description' />";
-                    echo "<input type='file' name='upload_file' />";
+                    echo "<label>Upload Description</label><input type='text' name='description' />";
+                    echo "<label>Upload File</label><input type='file' name='upload_file' />";
                     echo "<input type='hidden' name='action' value='upload'/>";
                     echo "<button type='submit'>Upload!</button></form>";
                     echo "</div>";
