@@ -1,0 +1,102 @@
+html, body {
+    margin: 0px;
+    background-color:white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: fixed;
+    background-color: #252525;
+    width: 100%;
+    padding: 15px;
+    color: #d3d3d3;
+    top: 0;
+    box-sizing: border-box;
+}
+
+header div {
+    width: 50%;
+    float: left;
+}
+
+header ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+header ul li {
+    display: block;
+    float: right;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0px 20px;
+    box-sizing: border-box;
+}
+
+main {
+    margin-top: 50px;
+    padding-top: 20px;
+    width: 90%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.error {
+    width: 90%;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 15px;
+    box-sizing:border-box;
+    background-color: #ff9292;
+    border: 1px solid red;
+}
+
+#login {
+    width: 60%;
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid black;
+    padding: 40px;
+    box-sizing:border-box;
+}
+
+#login label {
+    display: block;
+    width: 100%;
+    margin: 5px;
+}
+
+#login input {
+    width: 100%;
+}
+
+#login button {
+    margin-top: 15px;
+}
+
+#uploads {
+    width: 50%;
+    box-sizing:border-box;
+    padding: 10px;
+    display: inline-block;
+    height: 100%;
+    top: 0px;
+}
+
+#posts {
+    width: 50%;
+    box-sizing:border-box;
+    padding: 10px;
+    display: inline-block;
+    height: 100%;
+    top: 0px;
+}
+
+#posts .post {
+    padding: 15px;
+    border: 1px solid rgb(90, 90, 90);
+}

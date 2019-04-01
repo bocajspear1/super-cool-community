@@ -1,0 +1,8 @@
+<?php
+
+$mysqli = new mysqli("localhost", $config->database_user, $config->database_password, $config->database_name);
+
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+}
+?>
