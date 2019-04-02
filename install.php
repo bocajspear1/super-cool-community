@@ -57,8 +57,12 @@ error_reporting(E_ALL);
                     'tagline' => $_POST['tagline'],
                     'description' => $_POST['description'],
                     'upload_dir' => $_POST['upload_dir'],
+                    'thingy' => "hi"
                 ];
                 file_put_contents("./config.json", json_encode($output));
+                $config_json = file_get_contents("./config.json");
+                $config = json_decode($config_json);
+
             }
         }
         
