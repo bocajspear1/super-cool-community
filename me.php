@@ -98,6 +98,7 @@
                     echo "<div id='new-upload'>";
                     echo "<h3>New Upload</h3>";
                     echo "<form method='post' action='me.php' enctype=\"multipart/form-data\"> ";
+                    echo "<label>Upload Name</label><input type='text' name='name' />";
                     echo "<label>Upload Description</label><input type='text' name='description' />";
                     echo "<label>Upload File</label><input type='file' name='upload_file' />";
                     echo "<input type='hidden' name='action' value='upload'/>";
