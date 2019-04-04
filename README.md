@@ -1,5 +1,9 @@
 # Super Cool Community
 
+## Not finished...
+
+Uh, made this is a few days and probably not ready for production use. It might be a bit vulnerable...
+
 ## Setup
 
 Use the `install.php` script to help setup your community and its config.
