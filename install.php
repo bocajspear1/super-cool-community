@@ -74,7 +74,7 @@ error_reporting(E_ALL);
         <h3>Config Setup</h3>
         <form method="post" action="install.php">
             <div class="form-group">
-                <label for="database_user">Database Username</label>
+                <label for="database_user">Database Host</label>
                 <input type="text" class="form-control" name="database_host" placeholder="Database Host" value="<?php if ($config!==null){echo $config->database_host;}?>">
             </div>
             <div class="form-group">
@@ -82,12 +82,12 @@ error_reporting(E_ALL);
                 <input type="text" class="form-control" name="database_user" placeholder="Database Username" value="<?php if ($config!==null){echo $config->database_user;}?>">
             </div>
             <div class="form-group">
-                <label for="database_password">Database Username</label>
+                <label for="database_password">Database Password</label>
                 <input type="password" class="form-control" name="database_password" placeholder="Database Password" value="<?php if ($config!==null){echo $config->database_password;}?>">
             </div>
             <div class="form-group">
                 <label for="database_name">Database Name</label>
-                <input type="password" class="form-control" name="database_name" placeholder="Database Name" value="<?php if ($config!==null){echo $config->database_name;}?>">
+                <input type="text" class="form-control" name="database_name" placeholder="Database Name" value="<?php if ($config!==null){echo $config->database_name;}?>">
             </div>
             <div class="form-group">
                 <label for="admin_username">Admin Username</label>
