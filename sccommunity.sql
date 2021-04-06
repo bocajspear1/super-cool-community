@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2.1
--- http://www.phpmyadmin.net
+-- version 4.9.7deb1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 01, 2019 at 04:00 AM
--- Server version: 5.7.25-0ubuntu0.16.04.2
--- PHP Version: 7.0.33-0ubuntu0.16.04.1
+-- Host: localhost:3306
+-- Generation Time: Apr 06, 2021 at 12:37 AM
+-- Server version: 8.0.23-0ubuntu0.20.10.1
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -27,8 +29,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `posts` (
-  `postid` int(11) NOT NULL,
-  `userid` int(11) NOT NULL,
+  `postid` int NOT NULL,
+  `userid` int NOT NULL,
   `title` varchar(200) NOT NULL,
   `text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -38,7 +40,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`postid`, `userid`, `title`, `text`) VALUES
-(1, 1, 'Never Going to Give Up Beans', 'Never gonna let them down!');
+(1, 1, 'Ground control to Major Tom', 'Take your protein pills and put your helmet on');
 
 -- --------------------------------------------------------
 
@@ -47,8 +49,8 @@ INSERT INTO `posts` (`postid`, `userid`, `title`, `text`) VALUES
 --
 
 CREATE TABLE `uploads` (
-  `uploadid` int(11) NOT NULL,
-  `userid` int(11) NOT NULL,
+  `uploadid` int NOT NULL,
+  `userid` int NOT NULL,
   `name` varchar(200) NOT NULL,
   `description` text NOT NULL,
   `filename` varchar(200) NOT NULL
@@ -61,7 +63,7 @@ CREATE TABLE `uploads` (
 --
 
 CREATE TABLE `users` (
-  `userid` int(11) NOT NULL,
+  `userid` int NOT NULL,
   `username` varchar(75) NOT NULL,
   `fullname` varchar(100) NOT NULL,
   `password` varchar(40) NOT NULL,
@@ -73,8 +75,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `username`, `fullname`, `password`, `description`) VALUES
-(1, 'rick', 'Rick Astley', 'beansrcool', 'I am an avid bean lover! I grow lots of them in my garden!'),
-(2, 'bobby', 'Bobby Tables', 'hackme', 'My name is Bobby Tables. I like navy beans in my salads!');
+(1, 'tom', 'Major Tom', 'spaceiscold', 'I\'m stepping through the door, and I\'m floating in a most peculiar way'),
+(2, 'bobby', 'Bobby Tables', 'hackme', 'My name is Bobby Tables. Black holes are cool');
 
 --
 -- Indexes for dumped tables
@@ -106,17 +108,21 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `postid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `uploadid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uploadid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
