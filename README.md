@@ -15,11 +15,3 @@ Use the `admin.php` page to administer your community. The username and password
 ## SQL 
 
 SQL is in the `sccommunity.sql` file.
-
-## Troubleshooting
-
-Having trouble with writing your `config.json` file? Are you on Centos? Try this config to change SELinux: 
-
-```
-chcon -Rv --type=httpd_sys_rw_content_t /var/www/html/
-```

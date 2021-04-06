@@ -81,7 +81,7 @@
                 while ($row = $users->fetch_assoc()) {
                     $username = $row['username'];
                     $fullname = $row['fullname'];
-                    echo "<tr><td><a href='page.php?u=$username'>$fullname</a></td>";
+                    echo "<tr><td><img class='user-icon' src='static/user.png'><a href='page.php?u=$username'>$fullname</a></td>";
                     $query = "SELECT * FROM posts WHERE userid=" . $row['userid'];
                     $posts_result = $mysqli->query($query);
                     echo "<td>" . $posts_result->num_rows . "</td>";

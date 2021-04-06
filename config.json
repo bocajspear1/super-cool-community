@@ -5,8 +5,8 @@
     "database_name": "sccommunity",
     "admin_username": "admin",
     "admin_password": "admin",
-    "community_name": "CoolBeans",
-    "tagline": "For people who like growing string beans!",
-    "description": "This community is all about string beans. Join us to talk about the best beans with the best people on the best platform!",
+    "community_name": "SpaceBook",
+    "tagline": "Connect to everything space!",
+    "description": "This community is all space and space exploration",
     "upload_dir": "uploads"
 }

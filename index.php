@@ -15,6 +15,11 @@
         Login above to enjoy this community. Made possible by SuperCoolCommunity!
     </p>
 
+
+   <p>
+     <img src="static/main.jpg">
+
+   </p>
 </main>
 
 <?php include 'includes/footer.php' ?>
