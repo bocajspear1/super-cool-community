@@ -44,7 +44,7 @@ if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)
         <form method="post" action="login.php">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                <input type="text" class="form-control" name="username" id="username">
             </div>
             <div class="form-group">
                 <label for="username">Password</label>

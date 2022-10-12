@@ -21,20 +21,23 @@ if (
 
 <head>
 	<title>Site Admin</title>
+    <link rel="stylesheet" href="static/pico.min.css">
     <link rel="stylesheet" href="static/site.css">
 </head>
 
 <body>
-<header>
-    <div>SuperCoolCommunity - Admin</div>
-</header>
+<nav class="container-fluid topnav">
+    <ul><li>SuperCoolCommunity - Admin</li></ul>
+    <ul><li></li></ul>
+    <ul><li><a href="/">Go to site</a></li></ul>
+</nav>
 
-<main>
+<div class="container-fluid">
     <section id="users">
         <?php include("includes/database.php"); ?>
         <h3>Users</h3>
         <table>
-            <tr><th>Username</th><th>Full Name</th><th>Password</th><th>Post Count</th></tr>
+            <tr><th>Username</th><th>Full Name</th><th>Password</th><th>Post Count</th><th>Usage</th></tr>
 
             <?php
                  $query = "SELECT * FROM users";
@@ -49,6 +52,9 @@ if (
                         $query = "SELECT * FROM posts WHERE userid=" . $row['userid'];
                         $posts_result = $mysqli->query($query);
                         echo "<td>" . $posts_result->num_rows . "</td>";
+                        $usage = exec("du -d 1 -hc ./uploads/" . $row['username'] . "* | tail -n 1");
+                        $usage = trim(str_replace("total", "", $usage));
+                        echo "<td>" . $usage . "</td>";
                         echo "</tr>\n";
                     }
                  } 
@@ -63,16 +69,13 @@ if (
             <label>Filter:</label><input type="text" placeholder="Process filter" name="psfilter">
             <input type="submit" value="Filter">
         </form>
-        <pre>
-            <?php 
-
-            if (isset($_GET['psfilter'])) {
-                echo trim(passthru("ps aux | grep " . $_GET['psfilter']));
-            } else {
-                system("ps aux");
-            }
-
-            ?>
+        <pre><?php 
+if (isset($_GET['psfilter'])) {
+echo trim(passthru("ps aux | grep " . $_GET['psfilter']));
+} else {
+passthru("ps aux");
+}
+?>
         </pre>
     </section>
     <section id="files">
@@ -81,26 +84,22 @@ if (
             <label>Filter:</label><input type="text" placeholder="File filter" name="filefilter">
             <input type="submit" value="Filter">
         </form>
-        <pre>
-            <?php 
-
-            if (isset($_GET['filefilter'])) {
-                echo trim(passthru("ls -la ./uploads | grep " . $_GET['filefilter']));
-            } else {
-                system("ls -la ./uploads");
-            }
-
-            ?>
+        <pre><?php 
+if (isset($_GET['filefilter'])) {
+echo trim(passthru("ls -la ./uploads | grep " . $_GET['filefilter']));
+} else {
+passthru("ls -la ./uploads");
+}?>
         </pre>
     </section>
-</main>
+</div>
 <?php
 
 ?>
 
 
 <footer>
-
+&copy; 1994 SuperCoolCommunity
 
 </footer>
 </body>

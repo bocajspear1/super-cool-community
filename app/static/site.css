@@ -1,0 +1,15 @@
+nav.topnav {
+    background-color: black;
+}
+
+.error {
+    padding: 15px;
+    background-color: rgb(180, 0, 0);
+    color: white;
+}
+
+.success {
+    padding: 15px;
+    background-color: rgb(0, 167, 42);
+    color: white;
+}

@@ -1,8 +1,22 @@
 # Super Cool Community
 
-## Not finished...
+Vulnerable community web application. Write posts, make comments, and hack the server!
 
-Uh, made this is a few days and probably not ready for production use. It might be a bit vulnerable...
+## Run in Docker
+
+Docker runs Apache server with DB and PHPMyAdmin installed
+
+```
+docker build -t sccommunity-webapp .
+docker run -p 1337:80 --rm -it --name sccommunity-webapp-test -v`pwd`/app:/var/www/html sccommunity-webapp
+```
+
+or 
+
+```
+make build
+make run
+```
 
 ## Setup
 

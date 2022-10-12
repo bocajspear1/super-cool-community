@@ -1,7 +1,7 @@
 {
     "database_host": "localhost",
-    "database_user": "sccommunity",
-    "database_password": "sccommunity!",
+    "database_user": "admin",
+    "database_password": "hackathon",
     "database_name": "sccommunity",
     "admin_username": "admin",
     "admin_password": "admin",

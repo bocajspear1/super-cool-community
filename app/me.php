@@ -4,7 +4,7 @@
 <main>
     <?php include("includes/database.php"); ?>
 
-    <section id="my-page">
+    <div class="container">
         <?php 
 
             if (array_key_exists('logged_in', $_SESSION) && $_SESSION['logged_in'] === true) {
@@ -23,9 +23,9 @@
                         $result = $mysqli->query($insert);
 
                         if ($result !== FALSE) {
-                            echo "<div>Post created!</div/>";
+                            echo "<div class='success'>Post created!</div/>";
                         } else {
-                            echo "<div class='error'>Post insert failed!</div/>";
+                            echo "<div class='error'>Post insert failed: " . $mysqli->error . "</div/>";
                         }
                     } else if (array_key_exists('action', $_POST) && $_POST['action'] === 'upload') {
                         if (count($_FILES) > 0 && array_key_exists('upload_file', $_FILES)) {
@@ -43,9 +43,9 @@
                                 $result = $mysqli->query($insert);
 
                                 if ($result !== FALSE) {
-                                    echo "<div>File uploaded!</div/>";
+                                    echo "<div class='success'>File uploaded!</div/>";
                                 } else {
-                                    echo "<div class='error'>Upload insert failed!</div/>";
+                                    echo "<div class='error'>Upload insert failed: " . $mysqli->error . "</div/>";
                                 }
 
                             } else {
@@ -56,10 +56,15 @@
                         }
 
                     } else if (array_key_exists('action', $_POST) && $_POST['action'] === 'description') {
-                        $update_query = "UPDATE users SET description='" . $_POST['description'] . "' WHERE userid=" . $user_data['userid'];
+                        $description = str_replace("'", "\'", $_POST['description']);
+                        $description = str_replace('"', '\"', $description);
+
+                        $update_query = "UPDATE users SET description='" . $description . "' WHERE userid=" . $user_data['userid'];
                         $result = $mysqli->query($update_query);
                         if (!$result) {
-                            "<div class='error'>Update failed</div>";
+                            echo "<div class='error'>Update failed: " . $mysqli->error . "</div>";
+                        } else {
+                            echo "<div class='success'>Description updated!</div/>";
                         }
                         $mysqli->commit();
                         // Update with new description
@@ -112,7 +117,7 @@
             }
 
         ?>
-    </section>
+    </div>
 
 </main>
 
