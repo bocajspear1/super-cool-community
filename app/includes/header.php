@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html data-theme="dark">
 
 <head>
 	<title><?php echo $config->community_name; ?> - SuperCoolCommunity</title>
