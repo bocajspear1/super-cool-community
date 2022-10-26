@@ -17,7 +17,7 @@ if (
 
 <!DOCTYPE html>
 
-<html>
+<html data-theme="dark">
 
 <head>
 	<title>Site Admin</title>

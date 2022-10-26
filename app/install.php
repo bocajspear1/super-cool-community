@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 ?>
 <!DOCTYPE html>
-<html>
+<html data-theme="dark">
 
 <head>
 	<title>SuperCoolCommunity Installation Helper</title>
