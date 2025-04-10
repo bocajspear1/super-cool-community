@@ -17,6 +17,12 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="page.php">Users</a></li>
             <?php
+                $pages = scandir("./pages");
+                foreach ($pages as $page) {
+                    if ($page != "." && $page != "..") {
+                        echo "<li><a href='page.php?p=" . $page . "'>" . ucfirst(pathinfo($page, PATHINFO_FILENAME)) . "</a></li>";
+                    }
+                }
                 if (array_key_exists('logged_in', $_SESSION) && $_SESSION['logged_in'] === true) {
                     echo "<li><a href='me.php'>My Profile</a></li>";
                     echo "<li><a href='logout.php'>Logout</a></li>";

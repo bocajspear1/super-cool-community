@@ -71,7 +71,7 @@ if (
         </form>
         <pre><?php 
 if (isset($_GET['psfilter'])) {
-echo trim(passthru("ps aux | grep " . $_GET['psfilter']));
+passthru("ps aux | grep " . $_GET['psfilter']);
 } else {
 passthru("ps aux");
 }

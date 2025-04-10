@@ -23,7 +23,7 @@ if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)
             header('Location: index.php');
         }
     }
-    $ERROR = "Invalid login!";
+    $ERROR = "Invalid login!&nbsp;" . mysqli_error($mysqli);
 
 }
 ?>

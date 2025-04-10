@@ -20,6 +20,9 @@ RUN /etc/init.d/mysql start && sleep 10 && echo "CREATE USER 'admin'@'localhost'
 
 RUN sed -i 's/display_errors = Off/display_errors = On/' /etc/php/7.2/apache2/php.ini
 
+# Make things less secure
+RUN sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
+
 COPY app/ /var/www/html
 
 EXPOSE 80

@@ -6,6 +6,7 @@
 
     <?php
         $username = "";
+        $postname = "";
         $user_id = 0;
         if (array_key_exists('u', $_GET) ) {
             // Stop SQL injection
@@ -15,6 +16,11 @@
 
             $username = $_GET['u'];
         }
+
+        if (array_key_exists('p', $_GET) ) {
+            $postname = $_GET['p'];
+        }
+
 
         if (array_key_exists('postid', $_POST) &&  array_key_exists('comment', $_POST)) {
             $query = "SELECT userid FROM users WHERE username='" . $_SESSION['username'] . "'";
@@ -49,9 +55,12 @@
                 echo "<div id='description'>" . $user_data['description'] . "</div>";
                 echo "</div>";
             } else {
-                echo "User not found!";
+                echo "User not found! " . mysqli_error($mysqli);;
+                
             }
             echo "</article>";
+        } elseif ($postname != "") {
+            include("./pages/" . $postname);
         } else {
             $users = $mysqli->query("SELECT * FROM users");
 

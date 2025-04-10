@@ -32,8 +32,8 @@
                             $upload_filename_items = explode(".", $_FILES['upload_file']['name']);
                             $ext = $upload_filename_items[count($upload_filename_items) - 1];
 
-                            $filename = $_SESSION['username'] . "." . $_POST['name'] . "." . $ext;
                             $src = $_FILES['upload_file']['tmp_name'];
+                            $filename = $_SESSION['username'] . "." . $_POST['name'] . "." . $ext;
 
                             $full_path = dirname($_SERVER['SCRIPT_FILENAME']) . "/" . $config->upload_dir . "/" . $filename;
                             $move_result = move_uploaded_file($src, $full_path); 
